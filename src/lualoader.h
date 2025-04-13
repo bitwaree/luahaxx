@@ -14,7 +14,6 @@ struct LuaLoaderParams{
 
 int NOEXPORT lua_loader_thread(struct LuaLoaderParams *lualoaderparams);
 
-#if defined(USE_LIBGAMEPWNAGE) && USE_LIBGAMEPWNAGE == 1
 struct ExportFuncToLua{
     int (*func) (lua_State *L);    // the Function
     char funcName[256];            // the export name
@@ -22,5 +21,3 @@ struct ExportFuncToLua{
 
 extern const struct ExportFuncToLua exportTable[];
 extern const int numberofExportFunc;
-#endif
-

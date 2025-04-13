@@ -22,10 +22,10 @@ int NOEXPORT lua_loader_thread(struct LuaLoaderParams *lualoaderparams)
     L = luaL_newstate();
     luaL_openlibs(L);                           // Load Lua libraries
 
-    #if defined(USE_LIBGAMEPWNAGE) && USE_LIBGAMEPWNAGE == 1
+
     if(lualoaderparams->enablegamepwnage)
         ExportFunctions(L);
-    #endif
+
     if (luaL_loadfile(L, lualoaderparams->filename))              // load but the Lua script
     {
         // handle any error may have occured while loading the file and exit thread
@@ -52,7 +52,6 @@ int NOEXPORT lua_loader_thread(struct LuaLoaderParams *lualoaderparams)
     return 0;
 }
 
-#if defined(USE_LIBGAMEPWNAGE) && USE_LIBGAMEPWNAGE == 1
 void NOEXPORT ExportFunctions(lua_State *L)
 {
     // register each functions/apis form the export table
@@ -62,4 +61,3 @@ void NOEXPORT ExportFunctions(lua_State *L)
         lua_setglobal(L, exportTable[i].funcName);
     }
 }
-#endif

@@ -13,8 +13,8 @@ LUAENGINE=null
 
 
 # don't modify
-SOURCE_FILES=src/hxomain.c src/luainit.c src/lualoader.c src/utils.c
-EXTRA_SOURCE=src/gamepwnage/exports.c
+SOURCE_FILES=src/hxomain.c src/luainit.c src/lualoader.c src/utils.c src/exports.c
+EXTRA_SOURCE=
 
 ifneq ($(LIBGAMEPWNAGE), off)
 # libgamepwnage is enabled
